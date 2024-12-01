@@ -67,8 +67,8 @@ class OpAL:
 		self.gammas = np.zeros(sz+1)				# decay to prior gammas
 		self.SM  = np.zeros((sz, n_options))		# Softmax values
 		self.rho = np.zeros(sz)						# DA at choice
-		self.C = np.zeros(sz,dtype=np.int)			# choice
-		self.R = np.zeros(sz,dtype=np.int)			# indicator variable of reward
+		self.C = np.zeros(sz,dtype=np.int64)			# choice
+		self.R = np.zeros(sz,dtype=np.int64)			# indicator variable of reward
 		self.beta_dist = np.zeros((sz+1,2)) +1		# beta distribution of avg reward
 		self.probs = probs							# prob of reward for choice
 		self.r_mag = r_mag							# magnitude of reward for choice
@@ -113,7 +113,7 @@ class OpAL:
 		# Palminteri sims
 		self.ctx = None								# context of actions
 		self.ctx_order = []							# ctx order
-		self.C_in_ctx = np.zeros(sz,dtype=np.int)	# context choice
+		self.C_in_ctx = np.zeros(sz,dtype=np.int64)	# context choice
 		self.Q = np.zeros((sz+1, n_options)) + v0	# for relative model, standard Q value								
 
 	def policy (self,thresh=0,forced_actions=None,forced_rewards=None,state_idx=None):
