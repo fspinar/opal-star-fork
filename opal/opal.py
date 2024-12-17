@@ -56,6 +56,7 @@ class OpAL:
 		self.n_options = n_options					# number of choices
 		self.crit = crit 							# critic type
 		self.V = init_crit(crit)					# critic
+		self.V0 = v0								# initial value of critic
 		self.QG = np.zeros((sz+1, n_options)) + 1	# Go Actor Values
 		self.QN = np.zeros((sz+1, n_options)) + 1	# NoGo Actor Values
 		self.alphags = np.zeros(sz)					# Go Actor Learning Rate
